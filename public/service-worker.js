@@ -16,7 +16,6 @@ const FILES_TO_CACHE = [
     "./icons/icon-512x512.png"
 ];
 
-// Respond with cached resources
 self.addEventListener('fetch', function (e) {
     console.log('fetch request : ' + e.request.url)
     e.respondWith(
@@ -28,9 +27,6 @@ self.addEventListener('fetch', function (e) {
                 console.log('file is not cached, fetching : ' + e.request.url)
                 return fetch(e.request)
             }
-
-            // You can omit if/else for console.log & put one line below like this too.
-            // return request || fetch(e.request)
         })
     )
 })
